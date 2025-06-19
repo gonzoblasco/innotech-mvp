@@ -1,5 +1,5 @@
 // src/app/api/chat/route.ts
-import { streamText } from 'ai';
+import { streamText, CoreMessage } from 'ai';
 import { google } from '@ai-sdk/google';
 import { NextRequest } from 'next/server';
 
@@ -46,15 +46,23 @@ export async function POST(req: NextRequest) {
     };
 
     console.log('Using agent type:', agentType);
-    console.log('System prompt:', systemPrompts[agentType as keyof typeof systemPrompts]);
+    
+    // Convertir mensajes al formato correcto
+    const coreMessages: CoreMessage[] = messages.map((msg: { role: string; content: string }) => {
+      const role = msg.role as 'user' | 'assistant';
+      if (role !== 'user' && role !== 'assistant') {
+        throw new Error(`Invalid message role: ${msg.role}`);
+      }
+      return {
+        role,
+        content: msg.content
+      };
+    });
 
     const result = await streamText({
       model: google('gemini-1.5-flash'),
       system: systemPrompts[agentType as keyof typeof systemPrompts] || systemPrompts.default,
-      messages: messages.map((msg: any) => ({
-        role: msg.role,
-        content: msg.content
-      })),
+      messages: coreMessages,
       temperature: 0.7,
       maxTokens: 1000,
     });

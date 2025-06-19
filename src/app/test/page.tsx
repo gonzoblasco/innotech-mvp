@@ -24,10 +24,10 @@ export default function TestPage() {
         <div className="bg-blue-50 p-6 rounded-lg inline-block max-w-lg">
           <h3 className="font-semibold mb-2">💡 Probá estas consultas:</h3>
           <div className="text-sm text-left space-y-1">
-            <p>• "Ayudame a crear un plan de marketing para mi PyME"</p>
-            <p>• "¿Cómo puedo mejorar mi presencia en redes sociales?"</p>
-            <p>• "Necesito ideas para un post de LinkedIn"</p>
-            <p>• "¿Qué tendencias de marketing funcionan en Argentina?"</p>
+            <p>• &quot;Ayudame a crear un plan de marketing para mi PyME&quot;</p>
+            <p>• &quot;¿Cómo puedo mejorar mi presencia en redes sociales?&quot;</p>
+            <p>• &quot;Necesito ideas para un post de LinkedIn&quot;</p>
+            <p>• &quot;¿Qué tendencias de marketing funcionan en Argentina?&quot;</p>
           </div>
         </div>
       </div>

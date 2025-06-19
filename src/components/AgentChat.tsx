@@ -104,7 +104,7 @@ export default function AgentChat({
               <p className="font-medium">¡Hola! Soy tu {agentName.toLowerCase()}.</p>
               <p className="text-sm">¿En qué puedo ayudarte hoy?</p>
               <div className="mt-4 p-3 bg-blue-50 rounded-lg text-xs text-blue-700">
-                💡 Probá preguntando: "Ayudame con ideas para mi PyME"
+                💡 Probá preguntando: &quot;Ayudame con ideas para mi PyME&quot;
               </div>
             </div>
           )}
