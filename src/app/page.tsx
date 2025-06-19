@@ -119,8 +119,10 @@ export default function Home() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <Button className="w-full" disabled>
-                  Próximamente - Día 5
+                <Button asChild className="w-full bg-pink-600 hover:bg-pink-700">
+                  <Link href="/agents/reels">
+                    ✅ Usar Agente
+                  </Link>
                 </Button>
               </CardContent>
             </Card>
@@ -151,9 +153,9 @@ export default function Home() {
             <Card className="border-blue-200">
               <CardHeader>
                 <CardTitle className="flex items-center justify-center gap-2">
-                  🚀 Sprint 1 - Día 3 ✅
+                  🚀 Sprint 1 - Día 4 ✅
                 </CardTitle>
-                <CardDescription>Primer agente especializado completado</CardDescription>
+                <CardDescription>Dos agentes especializados funcionando</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg">
@@ -176,9 +178,13 @@ export default function Home() {
                   <span className="font-medium">Agente LinkedIn Posts</span>
                   <span className="text-green-600 font-bold">✅ Completo</span>
                 </div>
-                <div className="flex items-center justify-between p-3 bg-blue-50 rounded-lg">
+                <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg">
                   <span className="font-medium">Agente Instagram Reels</span>
-                  <span className="text-blue-600 font-bold">🔄 Día 4-5</span>
+                  <span className="text-green-600 font-bold">✅ Completo</span>
+                </div>
+                <div className="flex items-center justify-between p-3 bg-blue-50 rounded-lg">
+                  <span className="font-medium">Agente Business Plan</span>
+                  <span className="text-blue-600 font-bold">🔄 Día 6-7</span>
                 </div>
                 <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                   <span className="font-medium">Sistema de pagos</span>
@@ -194,23 +200,23 @@ export default function Home() {
       <section className="py-16 bg-gradient-to-r from-blue-600 to-green-600 text-white">
         <div className="container mx-auto text-center px-4">
           <h2 className="text-3xl font-bold mb-4">
-            Probá la IA ahora mismo
+            Probá nuestros agentes especializados
           </h2>
           <p className="text-xl mb-2 opacity-90">
-            Registrate gratis y empezá a chatear con nuestro agente de prueba
+            Ya tenemos 2 agentes funcionando completamente - LinkedIn Posts y Instagram Reels
           </p>
           <p className="text-sm mb-8 opacity-75">
-            Sin tarjeta de crédito • 50 generaciones gratis por mes
+            Sin registro • Sin tarjeta de crédito • Resultados inmediatos
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" variant="secondary" asChild>
               <Link href="/agents/linkedin">
-                📱 Probar LinkedIn Posts
+                📱 Agente LinkedIn
               </Link>
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600" asChild>
-              <Link href="/agents">
-                🎯 Ver Agentes
+              <Link href="/agents/reels">
+                🎬 Agente Reels
               </Link>
             </Button>
           </div>
@@ -225,18 +231,18 @@ export default function Home() {
               🏗️ MVP en Construcción Activa
             </h3>
             <p className="text-sm text-gray-600 mb-4">
-              Estás viendo el desarrollo en tiempo real de InnoTech Solutions. 
-              ¡Primer agente especializado ya funcionando!
+              ¡Ya tenemos 2 agentes especializados funcionando completamente! 
+              Cada día del sprint agregamos nuevas funcionalidades.
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-xs text-gray-500">
               <span>✅ Día 1-2: Base técnica + IA</span>
               <span>✅ Día 3: Agente LinkedIn</span>
-              <span>🔄 Día 4-5: Agente Reels</span>
-              <span>⏳ Día 6-7: Agente Business Plan</span>
+              <span>✅ Día 4: Agente Reels</span>
+              <span>🔄 Día 6-7: Agente Business Plan</span>
               <span>⏳ Día 8-9: Pagos + Legal</span>
             </div>
             <div className="mt-3 text-xs text-green-600 font-medium">
-              🎯 Progreso actual: 3/10 días completados - Primer agente funcionando
+              🎯 Progreso actual: 4/10 días completados - Dos agentes funcionando perfectamente
             </div>
           </div>
         </div>

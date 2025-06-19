@@ -21,7 +21,7 @@ const agents = [
     description: 'Scripts de reels con timing y referencias culturales argentinas',
     icon: '🎬',
     href: '/agents/reels',
-    status: 'coming-soon',
+    status: 'active',
     color: 'bg-pink-50 border-pink-200 hover:bg-pink-100',
     badgeColor: 'bg-pink-100 text-pink-800 border-pink-200'
   },
@@ -49,8 +49,8 @@ export default function AgentsPage() {
           en crear contenido profesional adaptado al mercado argentino.
         </p>
         <div className="flex justify-center">
-          <Badge className="bg-blue-100 text-blue-800 border-blue-200">
-            🚀 Sprint 1 - Día 3: Primer agente activo
+          <Badge className="bg-green-100 text-green-800 border-green-200">
+            🚀 Sprint 1 - Día 4: Dos agentes activos funcionando
           </Badge>
         </div>
       </div>
