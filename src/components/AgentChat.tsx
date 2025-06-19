@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Send, Bot, User, AlertCircle } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
+import ReactMarkdown from 'react-markdown';
 
 interface AgentChatProps {
   agentType?: string;
@@ -23,6 +24,7 @@ export default function AgentChat({
 }: AgentChatProps) {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const [error, setError] = useState<string | null>(null);
+  const [isInitialized, setIsInitialized] = useState(false);
   
   const { 
     messages, 
@@ -30,18 +32,28 @@ export default function AgentChat({
     handleInputChange, 
     handleSubmit, 
     isLoading, 
-    error: chatError 
+    error: chatError,
+    append
   } = useChat({
     api: '/api/chat',
     body: { agentType },
-    initialMessages: initialMessage ? [
-      { id: '1', role: 'user', content: initialMessage }
-    ] : [],
     onError: (error) => {
       console.error('Chat error:', error);
       setError(error.message || 'Error al procesar el mensaje');
     }
   });
+
+  // Auto-enviar el mensaje inicial cuando se proporciona
+  useEffect(() => {
+    if (initialMessage && !isInitialized && messages.length === 0) {
+      console.log('Sending initial message:', initialMessage.substring(0, 100) + '...');
+      append({
+        role: 'user',
+        content: initialMessage
+      });
+      setIsInitialized(true);
+    }
+  }, [initialMessage, isInitialized, messages.length, append]);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -70,7 +82,7 @@ export default function AgentChat({
           {isLoading && (
             <div className="flex items-center gap-1 text-sm text-gray-500">
               <div className="animate-spin h-3 w-3 border border-gray-300 rounded-full border-t-blue-600"></div>
-              Pensando...
+              Generando...
             </div>
           )}
         </CardTitle>
@@ -98,7 +110,7 @@ export default function AgentChat({
       <CardContent className="flex-1 flex flex-col overflow-hidden">
         {/* Messages Container */}
         <div className="flex-1 overflow-y-auto space-y-4 mb-4 pr-2">
-          {messages.length === 0 && !error && (
+          {messages.length === 0 && !error && !isLoading && (
             <div className="text-center text-gray-500 mt-8">
               <div className="text-4xl mb-2">{agentIcon}</div>
               <p className="font-medium">¡Hola! Soy tu {agentName.toLowerCase()}.</p>
@@ -125,15 +137,38 @@ export default function AgentChat({
               )}
               
               <div
-                className={`max-w-[80%] rounded-lg px-4 py-2 ${
+                className={`max-w-[80%] rounded-lg px-4 py-3 ${
                   message.role === 'user'
                     ? 'bg-blue-600 text-white'
-                    : 'bg-gray-100 text-gray-900 border'
+                    : 'bg-gray-50 text-gray-900 border'
                 }`}
               >
-                <div className="whitespace-pre-wrap text-sm leading-relaxed">
-                  {message.content}
-                </div>
+                {message.role === 'assistant' ? (
+                  <div className="prose prose-sm max-w-none">
+                    <ReactMarkdown
+                      components={{
+                        h1: ({children}) => <h1 className="text-lg font-bold mb-2 mt-0">{children}</h1>,
+                        h2: ({children}) => <h2 className="text-base font-semibold mb-2 mt-3">{children}</h2>,
+                        h3: ({children}) => <h3 className="text-sm font-semibold mb-1 mt-2">{children}</h3>,
+                        p: ({children}) => <p className="mb-2 last:mb-0 leading-relaxed">{children}</p>,
+                        ul: ({children}) => <ul className="list-disc list-inside mb-2 space-y-1">{children}</ul>,
+                        ol: ({children}) => <ol className="list-decimal list-inside mb-2 space-y-1">{children}</ol>,
+                        li: ({children}) => <li className="text-sm">{children}</li>,
+                        strong: ({children}) => <strong className="font-semibold text-gray-900">{children}</strong>,
+                        em: ({children}) => <em className="italic">{children}</em>,
+                        blockquote: ({children}) => <blockquote className="border-l-4 border-blue-300 pl-3 italic my-2">{children}</blockquote>,
+                        code: ({children}) => <code className="bg-gray-100 px-1 py-0.5 rounded text-xs font-mono">{children}</code>,
+                        pre: ({children}) => <pre className="bg-gray-100 p-2 rounded text-xs overflow-x-auto my-2">{children}</pre>
+                      }}
+                    >
+                      {message.content}
+                    </ReactMarkdown>
+                  </div>
+                ) : (
+                  <div className="text-sm leading-relaxed">
+                    {message.content}
+                  </div>
+                )}
               </div>
               
               {message.role === 'user' && (
@@ -174,7 +209,7 @@ export default function AgentChat({
         {/* Debug Info (solo en desarrollo) */}
         {process.env.NODE_ENV === 'development' && (
           <div className="mt-2 text-xs text-gray-400">
-            Agent: {agentType} | Messages: {messages.length}
+            Agent: {agentType} | Messages: {messages.length} | Initial: {!!initialMessage}
           </div>
         )}
       </CardContent>

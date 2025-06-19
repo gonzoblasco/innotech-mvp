@@ -102,9 +102,9 @@ export default function Home() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <Button asChild className="w-full" disabled>
+                <Button asChild className="w-full">
                   <Link href="/agents/linkedin">
-                    Próximamente - Día 3
+                    ✅ Usar Agente
                   </Link>
                 </Button>
               </CardContent>
@@ -172,9 +172,9 @@ export default function Home() {
                   <span className="font-medium">Chat básico funcionando</span>
                   <span className="text-blue-600 font-bold">🔄 En progreso</span>
                 </div>
-                <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                  <span className="font-medium">Agentes especializados</span>
-                  <span className="text-gray-500 font-bold">⏳ Próximamente</span>
+                <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg">
+                  <span className="font-medium">Agente LinkedIn Posts</span>
+                  <span className="text-green-600 font-bold">✅ Completo</span>
                 </div>
                 <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                   <span className="font-medium">Sistema de pagos</span>

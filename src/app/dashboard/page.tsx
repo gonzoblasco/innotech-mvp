@@ -32,13 +32,13 @@ export default async function Dashboard() {
               📱 LinkedIn Posts
             </CardTitle>
             <CardDescription>
-              Posts profesionales adaptados al mercado argentino
+              Agente especializado ya disponible con formularios dinámicos
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <Button asChild className="w-full" disabled>
+            <Button asChild className="w-full">
               <Link href="/agents/linkedin">
-                Próximamente
+                ✅ Usar Agente LinkedIn
               </Link>
             </Button>
           </CardContent>
