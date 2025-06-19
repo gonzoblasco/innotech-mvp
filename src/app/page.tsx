@@ -21,13 +21,13 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" asChild>
-              <Link href="/dashboard">
-                Empezar Gratis
+              <Link href="/agents/linkedin">
+                Probar Agente LinkedIn
               </Link>
             </Button>
             <Button size="lg" variant="outline" asChild>
-              <Link href="/test">
-                Probar IA
+              <Link href="/agents">
+                Ver Todos los Agentes
               </Link>
             </Button>
           </div>
@@ -151,9 +151,9 @@ export default function Home() {
             <Card className="border-blue-200">
               <CardHeader>
                 <CardTitle className="flex items-center justify-center gap-2">
-                  🚀 Sprint 1 - Día 2
+                  🚀 Sprint 1 - Día 3 ✅
                 </CardTitle>
-                <CardDescription>Progreso del desarrollo en tiempo real</CardDescription>
+                <CardDescription>Primer agente especializado completado</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg">
@@ -168,13 +168,17 @@ export default function Home() {
                   <span className="font-medium">Integración Google AI</span>
                   <span className="text-green-600 font-bold">✅ Completo</span>
                 </div>
-                <div className="flex items-center justify-between p-3 bg-blue-50 rounded-lg">
+                <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg">
                   <span className="font-medium">Chat básico funcionando</span>
-                  <span className="text-blue-600 font-bold">🔄 En progreso</span>
+                  <span className="text-green-600 font-bold">✅ Completo</span>
                 </div>
                 <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg">
                   <span className="font-medium">Agente LinkedIn Posts</span>
                   <span className="text-green-600 font-bold">✅ Completo</span>
+                </div>
+                <div className="flex items-center justify-between p-3 bg-blue-50 rounded-lg">
+                  <span className="font-medium">Agente Instagram Reels</span>
+                  <span className="text-blue-600 font-bold">🔄 Día 4-5</span>
                 </div>
                 <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                   <span className="font-medium">Sistema de pagos</span>
@@ -200,13 +204,13 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" variant="secondary" asChild>
-              <Link href="/test">
-                🧪 Probar IA Gratis
+              <Link href="/agents/linkedin">
+                📱 Probar LinkedIn Posts
               </Link>
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600" asChild>
-              <Link href="/dashboard">
-                📱 Crear Cuenta
+              <Link href="/agents">
+                🎯 Ver Agentes
               </Link>
             </Button>
           </div>
@@ -222,14 +226,17 @@ export default function Home() {
             </h3>
             <p className="text-sm text-gray-600 mb-4">
               Estás viendo el desarrollo en tiempo real de InnoTech Solutions. 
-              Cada día del sprint agregamos nuevas funcionalidades.
+              ¡Primer agente especializado ya funcionando!
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-xs text-gray-500">
-              <span>✅ Día 1: Base técnica</span>
-              <span>🔄 Día 2: IA + Auth</span>
-              <span>⏳ Día 3: Agente LinkedIn</span>
-              <span>⏳ Día 4-5: Agente Reels</span>
-              <span>⏳ Día 8-9: Pagos</span>
+              <span>✅ Día 1-2: Base técnica + IA</span>
+              <span>✅ Día 3: Agente LinkedIn</span>
+              <span>🔄 Día 4-5: Agente Reels</span>
+              <span>⏳ Día 6-7: Agente Business Plan</span>
+              <span>⏳ Día 8-9: Pagos + Legal</span>
+            </div>
+            <div className="mt-3 text-xs text-green-600 font-medium">
+              🎯 Progreso actual: 3/10 días completados - Primer agente funcionando
             </div>
           </div>
         </div>
